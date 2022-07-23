@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.event.*;
 
 class userpwd extends Frame {
     TextField name, pass;
