@@ -12,7 +12,7 @@ void enq()
         rear = 0;
         q[rear] = ele;
     }
-    else if (front == 0 &&rear = size - 1)
+    else if (front == 0 && rear == size - 1)
     {
         printf("Queue is Full !! ");
     }
