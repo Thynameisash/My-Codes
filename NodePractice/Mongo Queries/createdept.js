@@ -6,19 +6,19 @@ MongoClient.connect(url, (err, db) => {
   const dbo = db.db(dbName);
   let data = [
     {
-      id: 1,
+      deptId: 1,
       name: "Leadership",
-      deptLocId: 101,
+      deptLocId: 701,
     },
     {
-      id: 2,
+      deptId: 2,
       name: "Sales",
-      deptLocId: 102,
+      deptLocId: 702,
     },
     {
-      id: 3,
-      name: "Testing",
-      deptLocId: 103,
+      deptId: 3,
+      name: "Marketing",
+      deptLocId: 703,
     },
   ];
   data.forEach((element) => {
