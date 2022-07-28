@@ -9,17 +9,16 @@ MongoClient.connect(url, (err, db) => {
     .collection("employee")
     .aggregate([
       {
-        $lookup: {
-          from: "department",
-          localField: "deptId",
-          foreignField: "deptId",
-          as: "details",
+        $group: {
+          _id: "$deptId",
+          deptId: { $first: "$deptId" },
+          count: { $sum: 1 },
         },
       },
     ])
-    .project({ empName: 1, "details.name": 1, _id: 0 })
     .toArray((err, res) => {
       if (err) throw err;
-      console.log(JSON.stringify(res, null, 1));
+      console.log(res);
+      db.close();
     });
 });

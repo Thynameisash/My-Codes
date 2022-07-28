@@ -7,19 +7,10 @@ MongoClient.connect(url, (err, db) => {
   const dbobj = db.db(dbName);
   dbobj
     .collection("employee")
-    .aggregate([
-      {
-        $lookup: {
-          from: "department",
-          localField: "deptId",
-          foreignField: "deptId",
-          as: "details",
-        },
-      },
-    ])
-    .project({ empName: 1, "details.name": 1, _id: 0 })
+    .aggregate([{ $group: { _id: "$deptId", TotalSalary: { $sum: "$salary" } } }])
     .toArray((err, res) => {
       if (err) throw err;
-      console.log(JSON.stringify(res, null, 1));
+      console.log(res);
+      db.close();
     });
 });
