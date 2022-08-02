@@ -1,18 +1,18 @@
 #include <stdio.h>
 int stack[100], choice, n, top, x, i;
-void push(void);
-void pop(void);
-void display(void);
+void push();
+void pop();
+void peek();
+void display();
 int main()
 {
-    // clrscr();
     top = -1;
-    printf("\n Enter the size of STACK[MAX=100]:");
+    printf("\nEnter the size :");
     scanf("%d", &n);
-    printf("\t 1.PUSH\n\t 2.POP\n\t 3.DISPLAY\n\t 4.EXIT");
+    printf("\t1.Push\n\t2.Pop\n\t3.Display\n\t4.Exit");
     do
     {
-        printf("\n Enter the Choice:");
+        printf("\nEnter the Choice:");
         scanf("%d", &choice);
         switch (choice)
         {
@@ -28,31 +28,36 @@ int main()
         }
         case 3:
         {
-            display();
+            peek();
             break;
         }
         case 4:
         {
-            printf("\n\t EXIT POINT ");
+            display();
+            break;
+        }
+        case 5:
+        {
+            printf("\n\tExit..");
             break;
         }
         default:
         {
-            printf("\n\t Please Enter a Valid Choice(1/2/3/4)");
+            printf("\n\tInvalid Choice");
         }
         }
-    } while (choice != 4);
+    } while (choice != 5);
     return 0;
 }
 void push()
 {
     if (top >= n - 1)
     {
-        printf("\n\tSTACK is over flow");
+        printf("\n\tOverflow !!");
     }
     else
     {
-        printf(" Enter a value to be pushed:");
+        printf("Enter a value :");
         scanf("%d", &x);
         top++;
         stack[top] = x;
@@ -62,25 +67,36 @@ void pop()
 {
     if (top <= -1)
     {
-        printf("\n\t Stack is under flow");
+        printf("\nUnderflow !!");
     }
     else
     {
-        printf("\n\t The popped elements is %d", stack[top]);
+        printf("\nThe popped element is %d", stack[top]);
         top--;
+    }
+}
+void peek()
+{
+    if (top >= 0)
+    {
+        printf("Top most element is : %d", stack[top]);
+    }
+    else
+    {
+        printf("\nStack empty");
     }
 }
 void display()
 {
     if (top >= 0)
     {
-        printf("\n The elements in STACK \n");
+        printf("\nThe elements in stack are :");
         for (i = top; i >= 0; i--)
             printf("\n%d", stack[i]);
-        printf("\n Press Next Choice");
+        printf("\nNext Choice : ");
     }
     else
     {
-        printf("\n The STACK is empty");
+        printf("\nStack empty");
     }
 }

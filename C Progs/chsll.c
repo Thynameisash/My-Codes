@@ -97,9 +97,9 @@ void deleteFromEnd(struct node *head)
     {
         temp = temp->next;
     }
-    struct node *curr_next = temp->next;
+    struct node *temp = temp->next;
     temp->next = NULL;
-    free(curr_next);
+    free(temp);
 }
 void deleteAtSpecificPosition(struct node *head)
 {
