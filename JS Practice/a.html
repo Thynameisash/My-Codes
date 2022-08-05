@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Entry Form</title>
+    <style>
+        #grad1 {
+            height: 100%;
+            background-color: rgb(137, 190, 207);
+        }
+
+        input {
+            display: inline-block;
+            margin: 5px;
+        }
+
+        label {
+            display: inline-block;
+            margin-left: 10px;
+            margin-right: 10px;
+            font-weight: bold;
+            color: red;
+        }
+
+        button {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px;
+            background-color: rgb(133, 130, 136);
+            color: black;
+        }
+
+        /* 
+        .action_btns {
+            margin-left: 20%;
+        } */
+    </style>
+
+    <script>
+        var studentData;
+        function displayStudentData() {
+            console.log(studentData);
+        }
+        function resetForm() {
+            if (confirm("Are you sure you want to reset the form?")) {
+                document.getElementById("student_form").reset();
+            }
+        }
+        function isValidDate(d) {
+            return !isNaN((new Date(d)).getTime());
+        }
+        function checkIfAnyItemSelected(radioOrCheckboxList) {
+            for (var i = 0; i < radioOrCheckboxList.length; i++) {
+                if (radioOrCheckboxList[i].checked) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        function validateForm() {
+            var firstName = document.forms["student_form"]["first_name"].value;
+            var lastName = document.forms["student_form"]["last_name"].value;
+            var emailId = document.forms["student_form"]["email_id"].value;
+            var address = document.forms["student_form"]["address"].value;
+            var city = document.forms["student_form"]["city"].value;
+            var password = document.forms["student_form"]["pass"].value;
+            var lang = document.forms["student_form"]["lang"].value;
+
+            if (firstName.length < 3 || firstName.length > 50) {
+                alert("First Name must be filled out");
+                return false;
+            }
+            if (lastName.length < 3 || lastName.length > 50) {
+                alert("Last Name must be filled out");
+                return false;
+            }
+            if (emailId.indexOf(" ") >= 0 || emailId.indexOf("@") == -1 || emailId.indexOf(".") == -1
+                && emailId.length < 3 || emailId.length > 50) {
+                alert("Enter valid email id");
+                return false;
+            }
+
+            // check gender
+            var allGenderRadio = document.getElementsByName("gender");
+            if (!checkIfAnyItemSelected(allGenderRadio)) {
+                alert("Select a gender");
+                return false;
+            }
+
+
+            if (address.length < 3 || address.length > 50) {
+                alert("Address must be filled out");
+                return false;
+            }
+            if (city.length < 3 || city.length > 50) {
+                alert("City must be filled out");
+                return false;
+            }
+            if (pass.length < 3 || pass.length > 50) {
+                alert("Password must be filled out");
+                return false;
+            }
+
+            alert("Form Submitted Successfully");
+            function getGender(allGenderList) {
+                for (var i = 0; i < allGenderList.length; i++) {
+                    if (allGenderList[i].checked) {
+                        return allGenderList[i].value;
+                    }
+                }
+                return gender;
+            }
+            var gender = getGender(document.getElementsByName("gender"));
+
+            studentData = {
+                "First Name": firstName,
+                "Last Name": lastName,
+                "Email Id": emailId,
+                "Gender": gender,
+                "Address": address,
+                "City": city,
+                "Nationality": nationality,
+                "Language": lang,
+                "Password": pass,
+            }
+            console.log(studentData);
+            for (var prop in studentData) {
+                console.log(prop + " : " + studentData[prop]);
+                document.getElementById("student_data").innerHTML += prop + " : " + studentData[prop] + "<br>";
+            }
+            // return true;
+        }
+    </script>
+</head>
+
+<body id="grad1">
+    <div id="student_data"></div>
+    <form name="student_form" class="formfield">
+
+        <table>
+            <!-- personal info -->
+            <tr>
+                <td><label for="email_id">Enter your Email Id</label></td>
+                <td><input class="input_class" type="email" id="email_id" name="email_id" /></td>
+            </tr>
+            <tr>
+                <td><label for="first_name">Enter your First Name</label></td>
+                <td><input class="input_class" type="text" id="first_name" name="first_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="first_name">Enter your Last Name</label></td>
+                <td><input class="input_class" type="text" id="last_name" name="last_name" /></td>
+            </tr>
+            <!-- Address -->
+            <tr>
+                <td><label for="address">Address</label></td>
+                <td><textarea class="input_class" id="address" name="address" rows="10" cols="30"></textarea></td>
+            </tr>
+            <!-- Gender picked -->
+            <tr>
+                <td>
+                    <label for="first_name">Sex</label>
+                </td>
+                <td>
+                    <input class="input_class" type="radio" value="Male" name="gender" id="male"> Male
+                    <br><input class="input_class" type="radio" value="Female" name="gender" id="female"> Female
+                    <br><input class="input_class" type="radio" value="Other" name="gender" id="other"> Other
+                </td>
+            </tr>
+
+            <!-- Nationality -->
+            <tr>
+                <td><label for="city">Nationality</label>
+                <td><select name="nationality">
+                        <option value="">-- select one --</option>
+                        <option value="afghan">Afghan</option>
+                        <option value="albanian">Indian</option>
+                        <option value="algerian">Algerian</option>
+                    </select></td>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="lang">Languages known</label>
+                <td><input type="checkbox" id="C" name="C" value="C" />
+                    <label>C</label> <br>
+                    <input type="checkbox" id="Java" name="Java" value="Java" checked=?yes? />
+                    <label>Java</label> <br>
+                    <input type="checkbox" id="C++" name="C++" value="C++" />
+                    <label>C++</label> <br>
+                    <input type="checkbox" id="Others" name="Others" value="Others" />
+                    <label>Others</label>
+                </td>
+                </td>
+            </tr>
+            <!-- Password -->
+            <tr>
+                <td><label for="pass">Enter your Password</label></td>
+                <td><input class="input_class" type="text" id="pass" name="pass" /></td>
+            </tr>
+            <tr>
+                <td><label for="pass">RE-type your Password</label></td>
+                <td><input class="input_class" type="text" id="pass" name="pass" /></td>
+            </tr>
+
+        </table>
+    </form>
+    <div class="action_btns">
+        <button id="reset_btn" value="Reset" onclick="resetForm()">Reset</button>
+        <button id="reset_btn" onclick="displayStudentData()">Check</button><br>
+        <p style="color: red"><b>Before submitting, Please click the check button!</b></p>
+        <button id="submit_btn" value="Submit" onclick="validateForm()">Submit</button>
+    </div>
+</body>
+
+</html>
