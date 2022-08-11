@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class selectionsort {
+public class selectionmin {
     public static void main(String[] args) {
         int[] nums = { 8, 1, 9, 1, 2, 3, 68, 7, 0 };
         System.out.println(Arrays.toString(sort(nums, 0)));
@@ -19,7 +19,6 @@ public class selectionsort {
         int temp = nums[startindex];
         nums[startindex] = nums[minind];
         nums[minind] = temp;
-        // System.out.println(Arrays.toString(nums));
         return sort(nums, startindex + 1);
     }
 }
