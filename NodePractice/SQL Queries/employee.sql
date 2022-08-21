@@ -9,12 +9,13 @@ else "Normal guy"
 end as remarks
 from employee; */
 
-/* update employee set salary = case 
+update employee set salary = case 
 WHEN role="Manager" THEN salary+6969
 WHEN role="Sleepmaster" THEN salary/2
 else salary-1
 end;
-select * from employee; */
+
+select * from employee;
 
 /* update employee set dept=11 where salary=100; */
 /* update employee set dept=12 where salary=20; */

@@ -7,17 +7,19 @@ public class quicksort {
         System.out.println(Arrays.toString(nums));
     }
 
-    public static void qs(int[] nums, int start, int end) {
+    public static void qs(int[] nums, int low, int hi) {
+        int start = low;
+        int end = hi;
         int mid = (start + end) / 2;
         int pivot = nums[mid];
-        if (start >= end) {
+        if (low >= hi) {
             return;
         }
         while (start <= end) {
             while (nums[start] < pivot) {
                 start++;
             }
-            while (nums[start] > pivot) {
+            while (nums[end] > pivot) {
                 end--;
             }
             if (start <= end) {
@@ -28,7 +30,7 @@ public class quicksort {
                 end--;
             }
         }
-        qs(nums, start, mid);
-        qs(nums, mid + 1, end);
+        qs(nums, low, end);
+        qs(nums, start, hi);
     }
 }

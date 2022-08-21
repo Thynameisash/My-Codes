@@ -31,4 +31,3 @@ public class altprime {
         printAltPrime(num);
     }
 }
-

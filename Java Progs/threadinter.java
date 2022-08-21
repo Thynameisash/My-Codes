@@ -7,8 +7,7 @@ class Mythreadrunnable implements Runnable {
     public void start() {
     }
 
-    public void Test() throws InterruptedException
-    {
+    public void Test() throws InterruptedException {
 
         Thread.sleep(5000);
 
@@ -36,6 +35,5 @@ public class threadinter {
         Thread t2 = new Thread(m2);
         t1.start();
         t2.start();
-
     }
 }
