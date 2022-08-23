@@ -10,7 +10,7 @@ public class quicksort {
     public static void qs(int[] nums, int low, int hi) {
         int start = low;
         int end = hi;
-        int mid = (start + end) / 2;
+        int mid = (start + end) >> 1;
         int pivot = nums[mid];
         if (low >= hi) {
             return;

@@ -19,7 +19,6 @@ public class altprime {
             if (checkPrime(num) == 1) {
                 if (temp % 2 == 0)
                     System.out.print(num + " ");
-
                 temp++;
             }
         }

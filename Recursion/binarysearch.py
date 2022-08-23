@@ -9,6 +9,5 @@ def bs(nums, target, start, end):
     else:
         return bs(nums, target, mid + 1, end)
 
-
 nums = [10, 20, 30, 80, 85, 90]
-print(bs(nums, 20, 0, len(nums) - 1))
+print(bs(nums, 80, 0, len(nums) - 1))
