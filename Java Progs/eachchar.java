@@ -3,23 +3,24 @@ import java.util.Scanner;
 public class eachchar {
     public static void main(String[] args) {
         System.out.println("Enter String");
-        Scanner sc = new Scanner(System.in);
-        String s = sc.nextLine();
-        int count[] = new int[s.length()];
-        for (int i = 0; i < count.length; i++) {
-            count[i] = 1;
-        }
+        try (Scanner sc = new Scanner(System.in)) {
+            String s = sc.nextLine();
+            int count[] = new int[s.length()];
+            for (int i = 0; i < count.length; i++) {
+                count[i] = 1;
+            }
 
-        for (int i = 0; i < s.length(); i++) {
-            for (int j = i + 1; j < s.length(); j++) {
-                if (s.charAt(i) == s.charAt(j)) {
-                    count[i]++;
+            for (int i = 0; i < s.length(); i++) {
+                for (int j = i + 1; j < s.length(); j++) {
+                    if (s.charAt(i) == s.charAt(j)) {
+                        count[i]++;
+                    }
                 }
             }
-        }
 
-        for (int i = 0; i < s.length(); i++) {
-            System.out.println(s.charAt(i) + " -> " + count[i]);
+            for (int i = 0; i < s.length(); i++) {
+                System.out.println(s.charAt(i) + " -> " + count[i]);
+            }
         }
     }
 }

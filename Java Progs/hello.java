@@ -11,10 +11,10 @@ public class hello {
                 i++;
             }
         }
-        int val = 0;
+        // int val;
         for (i = 0; i < nums.length; i++) {
             if (nums[i] != i + 1 && nums[i + 1] > nums[i]) {
-                val = i + 1;
+                int val = i + 1;
             }
         }
         return false;

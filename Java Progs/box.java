@@ -10,6 +10,6 @@ public class box extends boxweight {
     }
 
     public static void main(String[] args) {
-        box b = new box(10, 20, 30);
+        new box(10, 20, 30);
     }
 }

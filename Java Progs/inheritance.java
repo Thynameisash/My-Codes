@@ -1,4 +1,3 @@
-
 class Box {
 
 	private double width;
@@ -31,7 +30,7 @@ class BoxWeight extends Box {
 
 	public static void main(String args[]) {
 		Box mybOX1 = new Box(10, 20, 30);
-		BoxWeight myclone = new BoxWeight(mybOX1);
+		new BoxWeight(mybOX1);
 		double vol;
 		vol = mybOX1.volume();
 		System.out.println("Volume of mybox1 is " + vol);
