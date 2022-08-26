@@ -2,9 +2,6 @@ const express = require("express");
 const app = express();
 const port = 9090;
 
-app.get("/", (req, res) => {
-  res.send("Example running");
-});
 app.get("/home", (req, res) => {
   res.send("THIS IS MY HOMEEE !!!");
 });
