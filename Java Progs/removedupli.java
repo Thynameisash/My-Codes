@@ -5,12 +5,11 @@ import java.util.Set;
 
 class removedupli {
     public static void main(String[] args) {
-        
+
         ArrayList<Integer> al = new ArrayList<>(Arrays.asList(1, 1, 2, 2, 3, 7, 8, 9, 9, 9));
         System.out.println("Old ArrayList: " + al);
 
-        Set<Integer> set = new LinkedHashSet<>();
-        set.addAll(al);
+        Set<Integer> set = new LinkedHashSet<>(al);
         al.clear();
         al.addAll(set);
 
