@@ -13,4 +13,5 @@ public class regexvowels {
             System.out.print("Does not contain Vowels");
         }
     }
+
 }
