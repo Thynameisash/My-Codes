@@ -8,9 +8,9 @@ public class regexvowels {
         Pattern p = Pattern.compile(vowels);
         Matcher m = p.matcher(s);
         if (m.find()) {
-            System.out.print("Contains Vowels");
+            System.out.print("Contains Vowels.");
         } else {
-            System.out.print("Does not contain Vowels");
+            System.out.print("Does not contain Vowels.");
         }
     }
 
