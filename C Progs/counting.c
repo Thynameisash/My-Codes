@@ -59,9 +59,8 @@ int main()
 
     printf("\n Output array\n");
     for (i = 0; i < size; i++)
-        ``
-        {
-            printf(" %d ", outarr[i]);
-        }
+    {
+        printf(" %d ", outarr[i]);
+    }
     return 0;
 }

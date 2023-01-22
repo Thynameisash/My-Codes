@@ -1,43 +1,20 @@
-#include<stdio.h>
-#include<string.h>
-
-struct activity{
-    int start;
-    int finish;
-    char name[5];
-};
-
+#include <stdio.h>
 int main()
 {
-    struct activity act[7]={0,0};
-    struct activity selected[7]={0,0};
-    int count=0;
-    for (int i = 0; i <7;i++)
+    int start[] = {1, 5, 12};
+    int finish[] = {10, 13, 23};
+    int activities = sizeof(start) / sizeof(start[0]);
+    int i, j;
+    printf("Following activities are selected \t");
+    i = 0;
+    printf("%d\t", i);
+    for (j = 1; j < activities; j++)
     {
-        printf("Enter the start and finish time for activities\n");
-        scanf("%s%d%d",&act[i].name, &act[i].start,&act[i].finish);
-    }
-    for (int i = 0; i <7;i++)
-    {
-        printf("%s : %d : %d\n",act[i].name, act[i].start, act[i].finish);
-    }
-    int i=0;
-    strcpy(selected[0].name,act[0].name);
-    selected[0].start=act[0].start;
-    selected[0].finish=act[0].finish;
-    count++;
-    while (i<7){
-        if (selected[count-1].finish <= act[i].start)
+        if (start[j] >= finish[i])
         {
-                strcpy(selected[count].name,act[i].name);
-                selected[count].start=act[i].start;
-                selected[count].finish=act[i].finish;
-                count++;
+            printf("%d ", j);
+            i = j;
         }
-        i++;
     }
-    for (int i = 0; i <=count-1;i++)
-    {
-        printf("Selected Activities are:\n%s : %d : %d\n",selected[i].name, selected[i].start, selected[i].finish);
-    }
+    return 0;
 }
